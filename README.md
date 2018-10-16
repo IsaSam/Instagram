@@ -8,7 +8,7 @@ Time spent: **X** hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] User can sign up to create a new account using Parse authentication (+1pt)
+- [X] User can sign up to create a new account using Parse authentication (+1pt)
 - [ ] User can log in and log out of his or her account (+1pt)
 - [ ] The current signed in user is persisted across app restarts (+1pt)
 - [ ] User can take a photo, add a caption, and post it to "Instagram" (+2pt)
