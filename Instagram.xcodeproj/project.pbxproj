@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		969D8689217424AE007980EA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969D8688217424AE007980EA /* LoginViewController.swift */; };
 		969D868B2174D6D0007980EA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 969D868A2174D6D0007980EA /* Default-568h@2x.png */; };
+		969D868D21765DAD007980EA /* InstaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969D868C21765DAD007980EA /* InstaViewController.swift */; };
 		96AFB0CF216FC4390086A04A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFB0CE216FC4390086A04A /* AppDelegate.swift */; };
 		96AFB0D4216FC4390086A04A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96AFB0D2216FC4390086A04A /* Main.storyboard */; };
 		96AFB0D6216FC43F0086A04A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96AFB0D5216FC43F0086A04A /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 		87794A5D005471C4135BC32C /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		969D8688217424AE007980EA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		969D868A2174D6D0007980EA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		969D868C21765DAD007980EA /* InstaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaViewController.swift; sourceTree = "<group>"; };
 		96AFB0CB216FC4390086A04A /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96AFB0CE216FC4390086A04A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96AFB0D3216FC4390086A04A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,6 +48,7 @@
 			isa = PBXGroup;
 			children = (
 				969D8688217424AE007980EA /* LoginViewController.swift */,
+				969D868C21765DAD007980EA /* InstaViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			files = (
 				969D8689217424AE007980EA /* LoginViewController.swift in Sources */,
 				96AFB0CF216FC4390086A04A /* AppDelegate.swift in Sources */,
+				969D868D21765DAD007980EA /* InstaViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
