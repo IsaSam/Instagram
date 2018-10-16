@@ -10,8 +10,11 @@ import UIKit
 
 class InstaViewController: UIViewController {
     @IBAction func onLogOut(_ sender: Any) {
-        print("Log Out Successfully")
+        //print("Log Out Successfully")
+        
+        NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
     }
+    
     
     
     override func viewDidLoad() {
@@ -24,16 +27,5 @@ class InstaViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
