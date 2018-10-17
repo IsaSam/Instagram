@@ -8,14 +8,17 @@
 
 import UIKit
 
-class InstaViewController: UIViewController {
+class InstaViewController: UIViewController{
+    
     @IBAction func onLogOut(_ sender: Any) {
         //print("Log Out Successfully")
-        
-        NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
+        let actionSheet = UIAlertController(title: "Closing Session", message: "Are you sure you want to log Out?", preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Disconnect Session", style: .default, handler: {(UIAlertAction) in
+            NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(actionSheet, animated: true, completion: nil)
     }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
