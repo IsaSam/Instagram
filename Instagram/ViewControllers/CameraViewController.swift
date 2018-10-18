@@ -7,21 +7,52 @@
 //
 
 import UIKit
+import Parse
 
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var captionTextImage: UITextField!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if imageView.image == nil {
+            InstantiateImagePicker()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func onSubmit(_ sender: Any) {
+        Post.postUserImage(image: imageView.image, withCaption: captionTextImage.text) { (success: Bool, error: Error?) in
+            if success {
+                print("posting image")
+                self.imageView.image = nil
+                self.tabBarController?.selectedIndex = 0
+            } else {
+                print("error: \(String(describing: error))")
+            }
+        }
+    }
+    /*
+    func resize(image: UIImage, newSize: CGSize) -> UIImage {
+        let resizeImageView = UIImageView(frame: CGRectMake(0, 0, newSize.width, newSize.height))
+        resizeImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        resizeImageView.image = image
+        
+        UIGraphicsBeginImageContext(resizeImageView.frame.size)
+        resizeImageView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
+    }*/
+    
     
     func InstantiateImagePicker(){
         let vc = UIImagePickerController()
