@@ -10,6 +10,9 @@ import UIKit
 import Parse
 
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    //@IBOutlet weak var imageView: UIImageView!
+    //@IBOutlet weak var captionTextImage: UITextField!
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var captionTextImage: UITextField!
     
@@ -29,6 +32,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Dispose of any resources that can be recreated.
     }
     
+    
     @IBAction func onSubmit(_ sender: Any) {
         Post.postUserImage(image: imageView.image, withCaption: captionTextImage.text) { (success: Bool, error: Error?) in
             if success {
@@ -40,6 +44,9 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             }
         }
     }
+    /*@IBAction func onSubmit(_ sender: Any) {
+
+    }*/
     /*
     func resize(image: UIImage, newSize: CGSize) -> UIImage {
         let resizeImageView = UIImageView(frame: CGRectMake(0, 0, newSize.width, newSize.height))
@@ -85,11 +92,15 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(actionSheet, animated: true, completion: nil)
     }
+    //@IBOutlet weak var textImageTake: UIButton!
     @IBOutlet weak var textImageTake: UIButton!
     
     @IBAction func chooseImage(_ sender: Any) {
         InstantiateImagePicker()
     }
+    /*@IBAction func chooseImage(_ sender: Any) {
+        InstantiateImagePicker()
+    }*/
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // Get the image captured by the UIImagePickerController
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
