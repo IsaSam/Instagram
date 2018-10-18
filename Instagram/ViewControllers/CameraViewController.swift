@@ -22,18 +22,31 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func chooseImage(_ sender: Any) {
-        
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-
+        let vc = UIImagePickerController()
+        vc.delegate = self
         let actionSheet = UIAlertController(title: "Photo Source", message: "Choose a source", preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Camera 📸", style: .default, handler: {(UIAlertAction) in
-            imagePickerController.sourceType = .camera
-            self.present(imagePickerController, animated: true, completion: nil)
-        }))
+            actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(UIAlertAction) in
+
+                if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                    print("Camera is available 📸")
+                        //vc.sourceType = .camera
+                        vc.allowsEditing = true
+                        vc.sourceType = UIImagePickerControllerSourceType.camera
+                } else {
+                    print("Camera 🚫 available so we will use photo library instead")
+                    let alertController = UIAlertController(title: "Camera 🚫", message: "Camera is unavailable on this emulator device - Let's try Photo Library", preferredStyle: .alert)
+                    self.present(alertController, animated: true, completion: nil)
+                    // add the OK action to the alert controller
+                    alertController.addAction(UIAlertAction)
+                    
+                    
+                }
+                self.present(vc, animated: true, completion: nil)
+            }))
         actionSheet.addAction(UIAlertAction(title: "Photo Library ...", style: .default, handler: {(UIAlertAction) in
-            imagePickerController.sourceType = .photoLibrary
-            self.present(imagePickerController, animated: true, completion: nil)
+            vc.allowsEditing = true
+            vc.sourceType = .photoLibrary
+            self.present(vc, animated: true, completion: nil)
         }))
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(actionSheet, animated: true, completion: nil)
@@ -50,26 +63,4 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
  
 }
-/*
-extension CameraViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    public func instantiateImagePickerController() {
-        let vc = UIImagePickerController()
-        vc.delegate = self
-        vc.allowsEditing = true
-        vc.sourceType = UIImagePickerControllerSourceType.camera
-        
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            print("Camera is available 📸")
-            vc.sourceType = .camera
-        } else {
-            print("Camera 🚫 available so we will use photo library instead")
-            vc.sourceType = .photoLibrary
-        }
-        
-        self.present(vc, animated: true, completion: nil)
-        
-        
-    }
-    
 
-}*/
