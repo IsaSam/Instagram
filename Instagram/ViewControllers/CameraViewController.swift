@@ -10,6 +10,7 @@ import UIKit
 
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var captionTextImage: UITextField!
     
     
     override func viewDidLoad() {
@@ -72,7 +73,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         if textImageTake.isFocused{
             self.textImageTake.alpha = 1
         }else{
-            textImageTake.alpha = 0.05
+            textImageTake.alpha = 0.5
         }
     }
     

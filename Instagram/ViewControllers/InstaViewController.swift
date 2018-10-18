@@ -10,6 +10,14 @@ import UIKit
 
 class InstaViewController: UIViewController{
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+
     @IBAction func onLogOut(_ sender: Any) {
         //print("Log Out Successfully")
         let actionSheet = UIAlertController(title: "Closing Session", message: "Are you sure you want to log Out?", preferredStyle: .actionSheet)
@@ -20,12 +28,6 @@ class InstaViewController: UIViewController{
         self.present(actionSheet, animated: true, completion: nil)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
