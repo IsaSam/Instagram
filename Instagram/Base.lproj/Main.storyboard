@@ -128,6 +128,7 @@
                     <tabBarItem key="tabBarItem" title="Capture" image="insta_camera_btn" id="VLV-hU-ZJu"/>
                     <connections>
                         <outlet property="imageView" destination="C4L-v0-0Cp" id="Sef-58-SV2"/>
+                        <outlet property="textImageTake" destination="JBV-jW-qYt" id="WOu-QJ-sG7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYq-GU-PwI" userLabel="First Responder" sceneMemberID="firstResponder"/>

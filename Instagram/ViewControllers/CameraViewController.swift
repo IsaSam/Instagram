@@ -11,10 +11,12 @@ import UIKit
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     @IBOutlet weak var imageView: UIImageView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -51,6 +53,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(actionSheet, animated: true, completion: nil)
     }
+    @IBOutlet weak var textImageTake: UIButton!
     
     @IBAction func chooseImage(_ sender: Any) {
         InstantiateImagePicker()
@@ -62,11 +65,18 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         // Do something with the images (based on your use case)
         imageView.image = originalImage
-        //self.tapeCaption.text?.removeAll()
-        
+        imageView.image = editedImage
         // Dismiss UIImagePickerController to go back to your original view controller
         picker.dismiss(animated: true, completion: nil)
+        //self.textImageTake.alpha = 0.05
+        if textImageTake.isFocused{
+            self.textImageTake.alpha = 1
+        }else{
+            textImageTake.alpha = 0.05
+        }
     }
+    
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
