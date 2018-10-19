@@ -12,7 +12,7 @@ import Parse
 class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
-    
+   
     //var i = 0
     //var image: AnyObject?
     //var caption: String?
@@ -43,7 +43,7 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.rowHeight = 150
         tableView.estimatedRowHeight = 200
     }
-
+    
     @IBAction func onLogOut(_ sender: Any) {
         //print("Log Out Successfully")
         let actionSheet = UIAlertController(title: "Closing Session", message: "Are you sure you want to log Out?", preferredStyle: .actionSheet)
@@ -53,7 +53,11 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(actionSheet, animated: true, completion: nil)
     }
-    
+    /*
+    @IBAction func onLogOut(_ sender: Any) {
+
+    }
+    */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -77,7 +81,7 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 }
             }
         }
-        cell.textLabel?.text = post.caption
+        cell.captionLabel?.text = post.caption
         return cell
 }
 }
