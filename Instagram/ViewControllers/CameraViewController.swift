@@ -44,22 +44,29 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             }
         }
     }
-    /*@IBAction func onSubmit(_ sender: Any) {
-
-    }*/
-    /*
     func resize(image: UIImage, newSize: CGSize) -> UIImage {
-        let resizeImageView = UIImageView(frame: CGRectMake(0, 0, newSize.width, newSize.height))
-        resizeImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 100, height: 100))
+        //let resizeImageView = UIImageView(frame: rect(0, 0, newSize.width, newSize.height))
+        let resizeImageView = UIImageView(frame: rect)
+        resizeImageView.contentMode = UIViewContentMode.scaleAspectFill
         resizeImageView.image = image
         
         UIGraphicsBeginImageContext(resizeImageView.frame.size)
-        resizeImageView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        resizeImageView.layer.render(in: UIGraphicsGetCurrentContext()!)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return newImage
-    }*/
-    
+        return newImage!
+    }
+    func imagePickerController(picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        imageView.contentMode = .scaleAspectFill
+        
+        
+        
+        imageView.image = originalImage
+        dismiss(animated: true, completion: nil)
+    }
     
     func InstantiateImagePicker(){
         let vc = UIImagePickerController()

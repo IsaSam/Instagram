@@ -13,10 +13,7 @@ import Parse
 class PhotoCell: UITableViewCell {
 
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var captionLabel: UITextField!
-    
-    //@IBOutlet weak var photoView: PFImageView!
-    
+    @IBOutlet weak var captionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

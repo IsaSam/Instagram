@@ -7,15 +7,41 @@
 //
 
 import UIKit
+import Parse
 
-class InstaViewController: UIViewController{
+class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
+    
+    //var i = 0
+    //var image: AnyObject?
+    //var caption: String?
+    //var posts: [Post] = []
+    var posts = [Post]()
+    //let query = Post.query()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.reloadData()
+        
+        let query = Post.query()
+        query?.order(byDescending: "createdAt")
+        query?.includeKey("author")
+        query?.order(byDescending: "createdAt")
+        query?.limit = 20
+        query?.findObjectsInBackground { (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil {
+                // The find succeeded.
+                self.posts = objects! as! [Post]
+                self.tableView.reloadData()
+            }
+        }
+        tableView.dataSource = self
+        tableView.rowHeight = 150
+        tableView.estimatedRowHeight = 200
     }
 
     @IBAction func onLogOut(_ sender: Any) {
@@ -33,4 +59,27 @@ class InstaViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return posts.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
+        let post = posts[indexPath.row]
+        
+        if let imageFile : PFFile = post.media{
+            imageFile.getDataInBackground { (data,error) in
+                if (error != nil) {
+                    print(error.debugDescription)
+                }
+                else{
+                    cell.imageView?.image = UIImage(data: data!)
+                }
+            }
+        }
+        cell.textLabel?.text = post.caption
+        return cell
 }
+}
+
+
