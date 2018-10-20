@@ -107,6 +107,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.present(actionSheet, animated: true, completion: nil)
     }
     //@IBOutlet weak var textImageTake: UIButton!
+    //@IBOutlet weak var textImageTake: UIButton!
     @IBOutlet weak var textImageTake: UIButton!
     
     @IBAction func chooseImage(_ sender: Any) {

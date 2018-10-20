@@ -113,6 +113,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="captionLabel" destination="bmI-Lk-w63" id="egk-dM-iQN"/>
+                                            <outlet property="photoImageView" destination="cPi-Di-NUA" id="eOr-eP-6I3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -160,6 +164,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3v-19-y4M">
+                                <rect key="frame" x="49" y="64" width="276" height="227"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ihD-hh-tWC"/>
@@ -179,11 +187,12 @@
                     <connections>
                         <outlet property="captionTextImage" destination="QKL-2v-c7e" id="ihM-Iv-fkI"/>
                         <outlet property="imageView" destination="AJ8-Bd-mfc" id="sGl-qu-ZVo"/>
+                        <outlet property="textImageTake" destination="a3v-19-y4M" id="cmI-My-6A6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NrW-in-0uh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3772" y="922"/>
+            <point key="canvasLocation" x="3772" y="921.58920539730138"/>
         </scene>
         <!--Profil View Controller-->
         <scene sceneID="3dX-YW-q3D">
