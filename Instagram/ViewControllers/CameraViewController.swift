@@ -51,7 +51,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func onCancel(_ sender: Any) {
             NotificationCenter.default.post(name: NSNotification.Name("didCancel"), object: nil)
         }
-
+/*
     func resize(image: UIImage, newSize: CGSize) -> UIImage {
         let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 100, height: 100))
         //let resizeImageView = UIImageView(frame: rect(0, 0, newSize.width, newSize.height))
@@ -64,7 +64,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage!
-    }
+    }*/
     func imagePickerController(picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
