@@ -40,8 +40,8 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         }
         tableView.dataSource = self
-        tableView.rowHeight = 150
-        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = 200
+        tableView.estimatedRowHeight = UITableViewAutomaticDimension
     }
     
     @IBAction func onLogOut(_ sender: Any) {
@@ -84,6 +84,15 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.captionLabel?.text = post.caption
         return cell
 }
+    
+    @IBAction func onCompose(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 1
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Cancel"
+        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+    }
 }
 
 

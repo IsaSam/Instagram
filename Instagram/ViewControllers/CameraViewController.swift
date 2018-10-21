@@ -30,18 +30,21 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
     @IBAction func onSubmit(_ sender: Any) {
         Post.postUserImage(image: imageView.image, withCaption: captionTextImage.text) { (success: Bool, error: Error?) in
             if success {
                 print("posting Image")
-                self.imageView.image = nil
+                //self.imageView.image = nil
+                //self.tabBarController?.selectedIndex = 0
                 self.tabBarController?.selectedIndex = 0
             } else {
                 print("error: \(String(describing: error))")
             }
         }
     }
-
+    /*
     @IBAction func onCancel(_ sender: Any) {
         let actionSheet = UIAlertController(title: "Cancel", message: "Are you sure you want to Cancel?", preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "YES", style: .default, handler: {(UIAlertAction) in
@@ -49,8 +52,9 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         }))
         actionSheet.addAction(UIAlertAction(title: "NO", style: .cancel, handler: nil))
         self.present(actionSheet, animated: true, completion: nil)
+        
     }
-    
+    */
     func resize(image: UIImage, newSize: CGSize) -> UIImage {
         let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 100, height: 100))
         //let resizeImageView = UIImageView(frame: rect(0, 0, newSize.width, newSize.height))
@@ -107,15 +111,15 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.present(actionSheet, animated: true, completion: nil)
     }
     //@IBOutlet weak var textImageTake: UIButton!
-    //@IBOutlet weak var textImageTake: UIButton!
     @IBOutlet weak var textImageTake: UIButton!
     
-    @IBAction func chooseImage(_ sender: Any) {
-        InstantiateImagePicker()
-    }
     /*@IBAction func chooseImage(_ sender: Any) {
         InstantiateImagePicker()
     }*/
+    @IBAction func chooseImage(_ sender: Any) {
+        InstantiateImagePicker()
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // Get the image captured by the UIImagePickerController
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
