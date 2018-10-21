@@ -41,11 +41,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             logOut()
             // TODO: Load and show the login view controller
         }
+       
         NotificationCenter.default.addObserver(forName: Notification.Name("didCancel"), object: nil, queue: OperationQueue.main) { (Notification) in
             print("Cancel Capture")
             // TODO: Cancel
             cancel()
             // TODO: Load and show the login view controller
+            
+        }
+        NotificationCenter.default.addObserver(forName: Notification.Name("didShare"), object: nil, queue: OperationQueue.main) { (Notification) in
+            print("Picture Sharing Successfully")
+            share()
+            // TODO: Load and show the login view controller
+        }
+        func share(){
+            if PFUser.current() != nil {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                // view controller currently being set in Storyboard as default will be overridden
+                window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "homeID")
+            }
         }
         func logOut() {
             // Logout the current user
@@ -62,15 +76,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         }
         func cancel(){
-            print("Cancel Action")
-           /*
-            // Load and show the login view controller
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let InstaViewController = storyboard.instantiateViewController(withIdentifier: "instaviewcontroller")
-            self.window?.rootViewController = InstaViewController*/
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            // view controller currently being set in Storyboard as default will be overridden
-            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "instaviewcontroller")
+
+            if PFUser.current() != nil {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                // view controller currently being set in Storyboard as default will be overridden
+                window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "homeID")
+            }
         }
         
         return true

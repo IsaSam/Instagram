@@ -14,6 +14,8 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var captionTextImage: UITextField!
     
+    var window: UIWindow?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -26,35 +28,30 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+            super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
+   /*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.performSegue(withIdentifier: "homeSegue", sender: nil)
+    }
+    */
     @IBAction func onSubmit(_ sender: Any) {
         Post.postUserImage(image: imageView.image, withCaption: captionTextImage.text) { (success: Bool, error: Error?) in
             if success {
                 print("posting Image")
-                //self.imageView.image = nil
-                //self.tabBarController?.selectedIndex = 0
-                self.tabBarController?.selectedIndex = 0
+                self.imageView.image = nil
+                NotificationCenter.default.post(name: NSNotification.Name("didShare"), object: nil)
             } else {
                 print("error: \(String(describing: error))")
             }
         }
     }
-    /*
     @IBAction func onCancel(_ sender: Any) {
-        let actionSheet = UIAlertController(title: "Cancel", message: "Are you sure you want to Cancel?", preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "YES", style: .default, handler: {(UIAlertAction) in
             NotificationCenter.default.post(name: NSNotification.Name("didCancel"), object: nil)
-        }))
-        actionSheet.addAction(UIAlertAction(title: "NO", style: .cancel, handler: nil))
-        self.present(actionSheet, animated: true, completion: nil)
-        
-    }
-    */
+        }
+
     func resize(image: UIImage, newSize: CGSize) -> UIImage {
         let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 100, height: 100))
         //let resizeImageView = UIImageView(frame: rect(0, 0, newSize.width, newSize.height))
