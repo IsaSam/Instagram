@@ -24,12 +24,10 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+    
         tableView.delegate = self
-        tableView.reloadData()
         tableView.dataSource = self
-        tableView.rowHeight = 200
+        //tableView.rowHeight = 200
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
         
         let query = Post.query()
@@ -44,7 +42,7 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.tableView.reloadData()
             }
         }
-
+        tableView.reloadData()
         
     }
     @IBAction func onLogOut(_ sender: Any) {
@@ -76,7 +74,7 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     print(error.debugDescription)
                 }
                 else{
-                    cell.imageView?.image = UIImage(data: data!)
+                    cell.photoImageView?.image = UIImage(data: data!)
                 }
             }
         }
