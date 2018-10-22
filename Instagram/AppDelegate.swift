@@ -27,7 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://instagram-app-ios.herokuapp.com/parse"
             })
         )
-    
+        
+        // User persistence
         if PFUser.current() != nil {
             let vc = storyboard.instantiateViewController(withIdentifier: "tabBarController")
             window?.rootViewController = vc

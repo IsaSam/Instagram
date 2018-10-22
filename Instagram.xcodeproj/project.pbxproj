@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		965E1B4B217DBB52001AFE45 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E1B4A217DBB52001AFE45 /* SignUpViewController.swift */; };
 		9673CF86217855D100B7D487 /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673CF85217855D100B7D487 /* ProfilViewController.swift */; };
 		968643F82179AF6400CB18BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968643F62179AF6400CB18BD /* Main.storyboard */; };
 		969D8689217424AE007980EA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969D8688217424AE007980EA /* LoginViewController.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		18D29B7A663A03FDBC62A8CF /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 		87794A5D005471C4135BC32C /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
+		965E1B4A217DBB52001AFE45 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9673CF85217855D100B7D487 /* ProfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
 		968643F72179AF6400CB18BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		969D8688217424AE007980EA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 				969D868C21765DAD007980EA /* InstaViewController.swift */,
 				969D868E2176BAB7007980EA /* CameraViewController.swift */,
 				9673CF85217855D100B7D487 /* ProfilViewController.swift */,
+				965E1B4A217DBB52001AFE45 /* SignUpViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			files = (
 				969D8689217424AE007980EA /* LoginViewController.swift in Sources */,
 				969D868F2176BAB7007980EA /* CameraViewController.swift in Sources */,
+				965E1B4B217DBB52001AFE45 /* SignUpViewController.swift in Sources */,
 				9673CF86217855D100B7D487 /* ProfilViewController.swift in Sources */,
 				96AFB0CF216FC4390086A04A /* AppDelegate.swift in Sources */,
 				969D868D21765DAD007980EA /* InstaViewController.swift in Sources */,
