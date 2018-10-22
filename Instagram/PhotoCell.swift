@@ -18,12 +18,16 @@ class PhotoCell: UITableViewCell {
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var captionLabel: UILabel!
     
+    @IBOutlet weak var countLikes: UILabel!
+    
     var post: Post! {
         didSet {
             self.usernameLabel.text = post.author.username
+            self.userLabel.text = post.author.username
             //self.commentUsernameLabel.text = post.author.username
             self.captionLabel.text = post.caption
             self.profilImageView.image = UIImage(named: "insta-colors")
+            self.countLikes.text = post.likesCount.description
         }
     }
 
