@@ -161,6 +161,9 @@
                                 <rect key="frame" x="16" y="7" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="onLogOut:" destination="xpO-sL-atN" eventType="touchUpInside" id="tJ7-hC-cXX"/>
+                                </connections>
                             </button>
                             <connections>
                                 <action selector="onLogOut:" destination="xpO-sL-atN" id="UEV-Y2-dh2"/>

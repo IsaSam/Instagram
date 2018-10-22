@@ -34,6 +34,7 @@ class Post: PFObject, PFSubclassing {
      - parameter completion: Block to be executed after save operation is complete
      */
     class func postUserImage(image: UIImage?, withCaption caption: String?, withCompletion completion: PFBooleanResultBlock?) {
+    
         // use subclass approach
         let post = Post()
         let image = resize(image: image!, newSize: CGSize(width: 612, height: 612))
@@ -56,6 +57,7 @@ class Post: PFObject, PFSubclassing {
      
      - returns: PFFile for the the data in the image
      */
+    
     class func getPFFileFromImage(image: UIImage?) -> PFFile? {
         // check if image is not nil
         if let image = image {

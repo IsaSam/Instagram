@@ -20,12 +20,17 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var posts = [Post]()
     //let query = Post.query()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.dataSource = self
+        
+        
         tableView.delegate = self
         tableView.reloadData()
+        tableView.dataSource = self
+        tableView.rowHeight = 200
+        tableView.estimatedRowHeight = UITableViewAutomaticDimension
         
         let query = Post.query()
         query?.order(byDescending: "createdAt")
@@ -39,12 +44,9 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.tableView.reloadData()
             }
         }
-        tableView.dataSource = self
-        tableView.rowHeight = 200
-        tableView.estimatedRowHeight = UITableViewAutomaticDimension
+
         
     }
-    
     @IBAction func onLogOut(_ sender: Any) {
         //print("Log Out Successfully")
         let actionSheet = UIAlertController(title: "Closing Session", message: "Are you sure you want to log Out?", preferredStyle: .actionSheet)
@@ -54,11 +56,7 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(actionSheet, animated: true, completion: nil)
     }
-    /*
-    @IBAction func onLogOut(_ sender: Any) {
 
-    }
-    */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
