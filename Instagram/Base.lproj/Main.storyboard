@@ -63,7 +63,7 @@
             </objects>
             <point key="canvasLocation" x="864.79999999999995" y="143.47826086956522"/>
         </scene>
-        <!--Instagram-->
+        <!--𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶-->
         <scene sceneID="f0S-6U-2di">
             <objects>
                 <viewController storyboardIdentifier="instaviewcontroller" id="xpO-sL-atN" customClass="InstaViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -158,7 +158,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="eAj-H8-aiX"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Instagram" id="c8Z-mf-yxN">
+                    <navigationItem key="navigationItem" title="𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶" id="c8Z-mf-yxN">
                         <barButtonItem key="leftBarButtonItem" style="done" id="kOb-7S-3wh">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RRj-1l-Rcc">
                                 <rect key="frame" x="16" y="7" width="71" height="30"/>
@@ -362,6 +362,6 @@
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zVF-QM-Vnl"/>
+        <segue reference="BpM-j3-ikA"/>
     </inferredMetricsTieBreakers>
 </document>
