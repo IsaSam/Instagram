@@ -142,11 +142,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="captionLabel" destination="bmI-Lk-w63" id="egk-dM-iQN"/>
-                                            <outlet property="photoImageView" destination="cPi-Di-NUA" id="eOr-eP-6I3"/>
-                                            <outlet property="profilImageView" destination="P2r-UI-SFK" id="lSs-ZZ-l3E"/>
-                                            <outlet property="userLabel" destination="1Np-fR-9kK" id="mbc-n3-Abu"/>
-                                            <outlet property="usernameLabel" destination="moJ-oO-gQ5" id="rvT-gx-cYW"/>
+                                            <outlet property="captionLabel" destination="bmI-Lk-w63" id="ZPF-q9-vmD"/>
+                                            <outlet property="photoImageView" destination="cPi-Di-NUA" id="rdr-f4-fwF"/>
+                                            <outlet property="profilImageView" destination="P2r-UI-SFK" id="OMx-3p-rCJ"/>
+                                            <outlet property="userLabel" destination="1Np-fR-9kK" id="yaC-kN-VBe"/>
+                                            <outlet property="usernameLabel" destination="moJ-oO-gQ5" id="Owy-AR-I4e"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -13,12 +13,18 @@ import Parse
 class PhotoCell: UITableViewCell {
 
     //@IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var captionLabel: UILabel!
-    @IBOutlet weak var profilImageView: UIImageView!
-    @IBOutlet weak var usernameLabel: UILabel!
+    //@IBOutlet weak var captionLabel: UILabel!
+    //@IBOutlet weak var profilImageView: UIImageView!
+    //@IBOutlet weak var usernameLabel: UILabel!
     
-    @IBOutlet weak var userLabel: UILabel!
+    //@IBOutlet weak var userLabel: UILabel!
 
+    @IBOutlet weak var userLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var profilImageView: UIImageView!
+    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var captionLabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
