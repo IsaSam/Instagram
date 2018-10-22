@@ -33,10 +33,10 @@ class SignUpViewController: UIViewController {
             }else{
                 //print(error?.localizedDescription?)
                 print(error!.localizedDescription)
-                /*  if error?._code == 202{
+                  if error?._code == 202{
                  print("Account already exists for this username.")
                  
-                 }*/
+                 }
             }
         }
     }
