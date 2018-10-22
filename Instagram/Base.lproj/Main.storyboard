@@ -19,36 +19,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BQN-VE-A58">
-                                <rect key="frame" x="72" y="246" width="231" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="instaLogin" translatesAutoresizingMaskIntoConstraints="NO" id="eZs-vd-6Vq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="259"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BQN-VE-A58">
+                                <rect key="frame" x="16" y="287" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOu-X2-COI">
-                                <rect key="frame" x="72" y="390" width="47" height="30"/>
+                                <rect key="frame" x="221" y="202" width="120" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign In"/>
                                 <connections>
                                     <action selector="onSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W0f-8R-cIi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GsL-yn-npF">
-                                <rect key="frame" x="244" y="390" width="59" height="30"/>
+                                <rect key="frame" x="35" y="202" width="119" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <segue destination="IkL-2A-ocB" kind="presentation" id="VQX-MP-qbi"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GgY-4q-ohF">
-                                <rect key="frame" x="72" y="318" width="231" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GgY-4q-ohF">
+                                <rect key="frame" x="16" y="343" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <button clipsSubviews="YES" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8c-gl-NPd">
+                                <rect key="frame" x="0.0" y="611" width="375" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <state key="normal" backgroundImage="instaLogin2"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -61,9 +68,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-97" y="116"/>
+            <point key="canvasLocation" x="1764" y="-657.12143928035982"/>
         </scene>
-        <!--𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶-->
+        <!--Instagram-->
         <scene sceneID="f0S-6U-2di">
             <objects>
                 <viewController storyboardIdentifier="instaviewcontroller" id="xpO-sL-atN" customClass="InstaViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -158,7 +165,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="eAj-H8-aiX"/>
                     </view>
-                    <navigationItem key="navigationItem" title="𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶" id="c8Z-mf-yxN">
+                    <navigationItem key="navigationItem" title="Instagram" id="c8Z-mf-yxN">
                         <barButtonItem key="leftBarButtonItem" style="done" id="kOb-7S-3wh">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RRj-1l-Rcc">
                                 <rect key="frame" x="16" y="7" width="71" height="30"/>
@@ -426,7 +433,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vD8-Hs-FWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="896.79999999999995" y="-358.4707646176912"/>
+            <point key="canvasLocation" x="865" y="120"/>
         </scene>
         <!--Home-->
         <scene sceneID="CFY-LX-4Gw">
@@ -489,11 +496,13 @@
     <resources>
         <image name="SignUpInsta2" width="737" height="1093"/>
         <image name="feed_tab" width="25" height="25"/>
+        <image name="instaLogin" width="640" height="495"/>
+        <image name="instaLogin2" width="637" height="109"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zVF-QM-Vnl"/>
-        <segue reference="ha7-Qx-y9v"/>
+        <segue reference="BpM-j3-ikA"/>
+        <segue reference="sEn-Fb-dEe"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -78,6 +78,8 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         }
         cell.captionLabel?.text = post.caption
+        cell.usernameLabel.text = post.author.username
+        cell.profilImageView.image =  UIImage(named: "insta-colors")
         return cell
 }
     
