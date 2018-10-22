@@ -20,8 +20,6 @@ class PhotoCell: UITableViewCell {
     
     var post: Post! {
         didSet {
-            //self.photoImageView.file = post.media
-            //self.photoImageView.loadInBackground()
             self.usernameLabel.text = post.author.username
             //self.commentUsernameLabel.text = post.author.username
             self.captionLabel.text = post.caption

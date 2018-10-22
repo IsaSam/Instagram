@@ -27,7 +27,6 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
         tableView.delegate = self
         tableView.dataSource = self
-        //tableView.rowHeight = 200
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
         
         let query = Post.query()
@@ -79,8 +78,6 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         }
         cell.captionLabel?.text = post.caption
-        //cell.usernameLabel.text = post.author
-        //cell.userLabel.text = post.author
         return cell
 }
     
