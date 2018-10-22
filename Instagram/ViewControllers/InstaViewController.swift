@@ -79,6 +79,8 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         }
         cell.captionLabel?.text = post.caption
+        //cell.usernameLabel.text = post.author
+        //cell.userLabel.text = post.author
         return cell
 }
     

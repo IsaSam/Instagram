@@ -12,19 +12,22 @@ import Parse
 
 class PhotoCell: UITableViewCell {
 
-    //@IBOutlet weak var photoImageView: UIImageView!
-    //@IBOutlet weak var captionLabel: UILabel!
-    //@IBOutlet weak var profilImageView: UIImageView!
-    //@IBOutlet weak var usernameLabel: UILabel!
-    
-    //@IBOutlet weak var userLabel: UILabel!
-
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profilImageView: UIImageView!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var captionLabel: UILabel!
     
+    var post: Post! {
+        didSet {
+            //self.photoImageView.file = post.media
+            //self.photoImageView.loadInBackground()
+            self.usernameLabel.text = post.author.username
+            //self.commentUsernameLabel.text = post.author.username
+            self.captionLabel.text = post.caption
+            self.profilImageView.image = UIImage(named: "insta-colors")
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
