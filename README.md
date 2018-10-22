@@ -2,7 +2,7 @@
 
 **Instagram** is a photo sharing app using Parse as its backend.
 
-Time spent: **15** hours spent in total
+Time spent: **20** hours spent in total
 
 ## User Stories
 
@@ -48,7 +48,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='InstaWalkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='InstaVideo1.gif' title='Instagram part 1' width='' alt='Instagram Video part 1' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
