@@ -85,13 +85,14 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P2r-UI-SFK">
                                                     <rect key="frame" x="8" y="8" width="32" height="32"/>
+                                                    <color key="backgroundColor" red="0.88579513799999998" green="0.89211097760000002" blue="0.91105849640000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="FEP-8s-0ZC"/>
                                                         <constraint firstAttribute="height" constant="32" id="K7T-rc-dx8"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moJ-oO-gQ5">
-                                                    <rect key="frame" x="48" y="15.5" width="0.0" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moJ-oO-gQ5">
+                                                    <rect key="frame" x="48" y="15.5" width="84" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="4fh-CZ-xdS"/>
                                                     </constraints>
@@ -99,8 +100,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Np-fR-9kK">
-                                                    <rect key="frame" x="8" y="336" width="68" height="0.0"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Np-fR-9kK">
+                                                    <rect key="frame" x="8" y="336" width="68" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="68" id="539-vI-AtR"/>
                                                     </constraints>
@@ -171,7 +172,7 @@
                                 <action selector="onLogOut:" destination="xpO-sL-atN" id="UEV-Y2-dh2"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" id="wPU-sX-Yae">
+                        <barButtonItem key="rightBarButtonItem" title="compose" image="insta_camera_btn" id="wPU-sX-Yae">
                             <connections>
                                 <segue destination="RBY-RF-Ah7" kind="presentation" identifier="composeSegue" id="BpM-j3-ikA"/>
                             </connections>
@@ -193,28 +194,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AJ8-Bd-mfc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AJ8-Bd-mfc">
                                 <rect key="frame" x="49" y="86" width="276" height="227"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.88579513799999998" green="0.89211097760000002" blue="0.91105849640000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="276" id="DkL-v4-pGA"/>
+                                    <constraint firstAttribute="height" constant="227" id="KE3-CA-rLf"/>
+                                </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QKL-2v-c7e">
-                                <rect key="frame" x="49" y="321" width="276" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3v-19-y4M">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3v-19-y4M">
                                 <rect key="frame" x="49" y="86" width="276" height="227"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="227" id="8kW-2C-EMP"/>
+                                    <constraint firstAttribute="width" constant="276" id="Kam-pe-7Kp"/>
+                                </constraints>
                                 <state key="normal" title="Tap to add or capture photo"/>
                                 <connections>
                                     <action selector="chooseImage:" destination="94P-Lo-KZW" eventType="touchUpInside" id="EqG-g2-1Pz"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QKL-2v-c7e">
+                                <rect key="frame" x="49" y="321" width="276" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CYg-tV-Wmv"/>
+                                    <constraint firstAttribute="width" constant="276" id="G3a-nU-zt9"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AJ8-Bd-mfc" firstAttribute="top" secondItem="ihD-hh-tWC" secondAttribute="top" constant="22" id="2cB-Cl-wUw"/>
+                            <constraint firstItem="ihD-hh-tWC" firstAttribute="trailing" secondItem="QKL-2v-c7e" secondAttribute="trailing" constant="50" id="2r7-cm-unn"/>
+                            <constraint firstItem="QKL-2v-c7e" firstAttribute="top" secondItem="AJ8-Bd-mfc" secondAttribute="bottom" constant="8" id="4Ud-f5-Bt0"/>
+                            <constraint firstItem="a3v-19-y4M" firstAttribute="top" secondItem="ihD-hh-tWC" secondAttribute="top" constant="22" id="7KQ-al-odR"/>
+                            <constraint firstItem="QKL-2v-c7e" firstAttribute="leading" secondItem="ihD-hh-tWC" secondAttribute="leading" constant="49" id="Hx0-ng-ToS"/>
+                            <constraint firstItem="ihD-hh-tWC" firstAttribute="trailing" secondItem="a3v-19-y4M" secondAttribute="trailing" constant="50" id="K9a-OJ-Xpy"/>
+                            <constraint firstItem="QKL-2v-c7e" firstAttribute="top" secondItem="AJ8-Bd-mfc" secondAttribute="bottom" constant="8" id="QvU-Ib-b2V"/>
+                            <constraint firstItem="ihD-hh-tWC" firstAttribute="trailing" secondItem="AJ8-Bd-mfc" secondAttribute="trailing" constant="50" id="ct6-hE-u2Q"/>
+                            <constraint firstItem="AJ8-Bd-mfc" firstAttribute="leading" secondItem="ihD-hh-tWC" secondAttribute="leading" constant="49" id="pQo-su-5tg"/>
+                            <constraint firstItem="a3v-19-y4M" firstAttribute="leading" secondItem="ihD-hh-tWC" secondAttribute="leading" constant="49" id="poL-Cj-UKK"/>
+                            <constraint firstItem="QKL-2v-c7e" firstAttribute="top" secondItem="a3v-19-y4M" secondAttribute="bottom" constant="8" id="rdi-Hb-bAi"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ihD-hh-tWC"/>
                     </view>
                     <navigationItem key="navigationItem" id="4X1-do-rmq">
@@ -267,7 +290,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="IQP-zL-bXh" kind="relationship" relationship="viewControllers" id="vgN-RQ-c9c"/>
-                        <segue destination="RBY-RF-Ah7" kind="relationship" relationship="viewControllers" id="s9D-gH-3os"/>
+                        <segue destination="RBY-RF-Ah7" kind="relationship" relationship="viewControllers" id="zVF-QM-Vnl"/>
                         <segue destination="2jT-RS-HBh" kind="relationship" relationship="viewControllers" id="uUi-ig-Koz"/>
                     </connections>
                 </tabBarController>
@@ -317,7 +340,7 @@
         <scene sceneID="qvD-qR-05e">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RBY-RF-Ah7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Capture" image="insta_camera_btn" id="eK2-MH-6tn"/>
+                    <tabBarItem key="tabBarItem" title="Capture" image="insta_camera_btn" id="4CH-r4-B3M"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xqt-EV-zWK">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -339,6 +362,6 @@
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="s9D-gH-3os"/>
+        <segue reference="zVF-QM-Vnl"/>
     </inferredMetricsTieBreakers>
 </document>
