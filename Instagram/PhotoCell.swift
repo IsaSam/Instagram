@@ -29,6 +29,9 @@ class PhotoCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.profilImageView.layer.cornerRadius = self.profilImageView.bounds.width/2
+        self.profilImageView.clipsToBounds = true
+        self.selectionStyle = .none
         // Initialization code
     }
     
