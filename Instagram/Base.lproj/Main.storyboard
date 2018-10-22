@@ -85,14 +85,13 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P2r-UI-SFK">
                                                     <rect key="frame" x="8" y="8" width="32" height="32"/>
-                                                    <color key="backgroundColor" red="0.88579513799999998" green="0.89211097760000002" blue="0.91105849640000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="FEP-8s-0ZC"/>
                                                         <constraint firstAttribute="height" constant="32" id="K7T-rc-dx8"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moJ-oO-gQ5">
-                                                    <rect key="frame" x="48" y="15.5" width="84" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moJ-oO-gQ5">
+                                                    <rect key="frame" x="48" y="15.5" width="0.0" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="4fh-CZ-xdS"/>
                                                     </constraints>
@@ -100,8 +99,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Np-fR-9kK">
-                                                    <rect key="frame" x="8" y="336" width="68" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Np-fR-9kK">
+                                                    <rect key="frame" x="8" y="336" width="68" height="0.0"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="68" id="539-vI-AtR"/>
                                                     </constraints>
@@ -172,7 +171,7 @@
                                 <action selector="onLogOut:" destination="xpO-sL-atN" id="UEV-Y2-dh2"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="compose" image="insta_camera_btn" id="wPU-sX-Yae">
+                        <barButtonItem key="rightBarButtonItem" id="wPU-sX-Yae">
                             <connections>
                                 <segue destination="RBY-RF-Ah7" kind="presentation" identifier="composeSegue" id="BpM-j3-ikA"/>
                             </connections>
@@ -268,6 +267,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="IQP-zL-bXh" kind="relationship" relationship="viewControllers" id="vgN-RQ-c9c"/>
+                        <segue destination="RBY-RF-Ah7" kind="relationship" relationship="viewControllers" id="s9D-gH-3os"/>
                         <segue destination="2jT-RS-HBh" kind="relationship" relationship="viewControllers" id="uUi-ig-Koz"/>
                     </connections>
                 </tabBarController>
@@ -313,10 +313,11 @@
             </objects>
             <point key="canvasLocation" x="3654" y="922"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Capture-->
         <scene sceneID="qvD-qR-05e">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RBY-RF-Ah7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Capture" image="insta_camera_btn" id="eK2-MH-6tn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xqt-EV-zWK">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -337,4 +338,7 @@
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="profile_tab" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="s9D-gH-3os"/>
+    </inferredMetricsTieBreakers>
 </document>
