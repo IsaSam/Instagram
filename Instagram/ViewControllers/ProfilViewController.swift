@@ -21,8 +21,7 @@ fileprivate struct CollectionViewUI{
     static let cellCornerRadius: CGFloat = 0
 }
 
-class ProfilViewController: UIViewController{
-    //UICollectionViewDataSource, UICollectionViewDelegate
+class ProfilViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var fullNameLabel: UILabel!
@@ -30,14 +29,17 @@ class ProfilViewController: UIViewController{
     @IBOutlet weak var galleryLabel: UILabel!
     
     
-   // @IBOutlet weak var collectionView: UICollectionView!
+    //@IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
-    var posts: [Post]?{
+    
+    var posts = [Post]()
+    /*var posts: [Post]?{
         didSet{
             //self.refreshControl.endRefreshing()
-            //self.collectionView.reloadData()
+            self.collectionView.reloadData()
         }
-    }
+    }*/
     
   /*
     var profileUser: PFUser? = PFUser.current(){
@@ -61,23 +63,49 @@ class ProfilViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //collectionView.dataSource = self
-        //collectionView.delegate = self
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
         
-        // Do any additional setup after loading the view.
-        //profileImageView.image = PFUser.current()
+        //Do any additional setup after loading the view.
+     //profileImageView.image = PFUser.current()
+        let query = Post.query()
+        query?.order(byDescending: "createdAt")
+        query?.includeKey("author")
+        query?.order(byDescending: "createdAt")
+        query?.limit = 20
+        query?.findObjectsInBackground { (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil {
+                // The find succeeded.
+                self.posts = (objects! as? [Post])!
+                self.collectionView.reloadData()
+            }
+        }
+        collectionView.reloadData()
     }
     
     @IBAction func editProfileButton(_ sender: Any) {
     }
-    /*
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryCell", for: indexPath) as! GalleryCell
+        let post = posts[indexPath.row]
         
-    }*/
+        if let imageFile : PFFile = post.media{
+            imageFile.getDataInBackground { (data,error) in
+                if (error != nil) {
+                    print(error.debugDescription)
+                }
+                else{
+                    cell.imageCollection?.image = UIImage(data: data!)
+                }
+            }
+        }
+        return cell
+    }
 
 
 
