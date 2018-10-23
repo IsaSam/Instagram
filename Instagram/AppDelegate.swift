@@ -60,6 +60,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              window?.rootViewController = vc
              }
         }
+        NotificationCenter.default.addObserver(forName: Notification.Name("didCancelProfile"), object: nil, queue: OperationQueue.main) { (Notification) in
+            print("Cancel Capture")
+            // TODO: Cancel
+            cancel()
+            // TODO: Load and show the login view controller
+            
+        }
+        NotificationCenter.default.addObserver(forName: Notification.Name("didSaveProfile"), object: nil, queue: OperationQueue.main) { (Notification) in
+            print("Profile Picture Saved Successfully")
+            saveProfile()
+            // TODO: Load and show the login view controller
+        }
+        func saveProfile(){
+            if PFUser.current() != nil {
+                let vc = storyboard.instantiateViewController(withIdentifier: "profileViewID")
+                window?.rootViewController = vc
+            }
+        }
+        
+        
         func logOut() {
             // Logout the current user
             PFUser.logOutInBackground(block: { (error) in

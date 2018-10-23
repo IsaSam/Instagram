@@ -7,27 +7,80 @@
 //
 
 import UIKit
+import Parse
 
-class ProfilViewController: UIViewController {
-    @IBOutlet weak var profilImageView: UIImageView!
+
+fileprivate let reuseIden = "GalleryCell"
+fileprivate let headerReuseIden = "profileViewID"
+//fileprivate let editProfileSegueIden = "EditProfile"
+
+fileprivate struct CollectionViewUI{
+    static let UIEdgeSpace: CGFloat = 0
+    static let MinmumLineSpace: CGFloat = 2
+    static let MinmumInteritemSpace: CGFloat = 2
+    static let cellCornerRadius: CGFloat = 0
+}
+
+class ProfilViewController: UIViewController{
+    //UICollectionViewDataSource, UICollectionViewDelegate
+    
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var galleryLabel: UILabel!
     
+    
+   // @IBOutlet weak var collectionView: UICollectionView!
+    
+    var posts: [Post]?{
+        didSet{
+            //self.refreshControl.endRefreshing()
+            //self.collectionView.reloadData()
+        }
+    }
+    
+  /*
+    var profileUser: PFUser? = PFUser.current(){
+        didSet{
+            self.isCurrentUserProfile = (self.profileUser?.username == PFUser.current()?.username)
+            self.updateProfileUI()
+        }
+    }
+ */
+    //var profileUser: PFUser? = PFUser.current()
+    //var isCurrentUserProfile = true
+    
+   /* var headerView: ProfilViewController{
+        didSet{
+            self.headerView.postCount = self.posts?.count ?? 0
+            self.updateProfileUI()
+        }
+    }*/
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        let actionSheet = UIAlertController(title: "Profil", message: "", preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "View Profile", style: .default, handler: {(UIAlertAction) in}))
-        actionSheet.addAction(UIAlertAction(title: "Disconnect Session", style: .default, handler: {(UIAlertAction) in}))
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        self.present(actionSheet, animated: true, completion: nil)*/
+        
+        //collectionView.dataSource = self
+        //collectionView.delegate = self
+        
         // Do any additional setup after loading the view.
+        //profileImageView.image = PFUser.current()
     }
     
     @IBAction func editProfileButton(_ sender: Any) {
     }
+    /*
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
+    }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+    }*/
+
+
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

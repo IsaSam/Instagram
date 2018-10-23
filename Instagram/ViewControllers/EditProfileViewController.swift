@@ -1,52 +1,47 @@
 //
-//  CameraViewController.swift
+//  EditProfileViewController.swift
 //  Instagram
 //
-//  Created by Isaac Samuel on 10/16/18.
+//  Created by Isaac Samuel on 10/23/18.
 //  Copyright © 2018 Isaac Samuel. All rights reserved.
 //
 
 import UIKit
 import Parse
 
-class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var captionTextImage: UITextField!
+class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var captionTextImage: UILabel!
     
     var window: UIWindow?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
-    
     override func viewDidAppear(_ animated: Bool) {
-        if imageView.image == nil {
+        if profileImage.image == nil{
             InstantiateImagePicker()
         }
     }
     
-    override func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func onSubmit(_ sender: Any) {
-    
-        Post.postUserImage(image: imageView.image, withCaption: captionTextImage.text) { (success: Bool, error: Error?) in
+    @IBAction func onSaveProfile(_ sender: Any) {
+        Post.postUserImage(image: profileImage.image, withCaption: captionTextImage.text) { (success: Bool, error: Error?) in
             if success {
-                print("posting Image")
-                self.imageView.image = nil
-                NotificationCenter.default.post(name: NSNotification.Name("didShare"), object: nil)
+                print("Saving Profile Image")
+                self.profileImage.image = nil
+                NotificationCenter.default.post(name: NSNotification.Name("didSaveProfile"), object: nil)
             } else {
                 print("error: \(String(describing: error))")
             }
         }
+        
     }
+    
     @IBAction func onCancel(_ sender: Any) {
-            NotificationCenter.default.post(name: NSNotification.Name("didCancel"), object: nil)
-        }
+                    NotificationCenter.default.post(name: NSNotification.Name("didCancelProfile"), object: nil)
+    }
     class public func resize(image: UIImage, newSize: CGSize) -> UIImage {
         let resizeImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
         resizeImageView.contentMode = UIViewContentMode.scaleAspectFill
@@ -58,14 +53,15 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         UIGraphicsEndImageContext()
         return newImage!
     }
+    
     func imagePickerController(picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        imageView.contentMode = .scaleAspectFill
+        profileImage.contentMode = .scaleAspectFill
         
         
         
-        imageView.image = originalImage
+        profileImage.image = originalImage
         dismiss(animated: true, completion: nil)
     }
     
@@ -100,10 +96,8 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(actionSheet, animated: true, completion: nil)
     }
-    @IBOutlet weak var textImageTake: UIButton!
-    
-
-    @IBAction func chooseImage(_ sender: Any) {
+    @IBOutlet weak var tapText: UIButton!
+    @IBAction func tapProfileTake(_ sender: Any) {
         InstantiateImagePicker()
     }
     
@@ -113,22 +107,33 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
         // Do something with the images (based on your use case)
-        imageView.image = originalImage
-        imageView.image = editedImage
+        profileImage.image = originalImage
+        profileImage.image = editedImage
         // Dismiss UIImagePickerController to go back to your original view controller
         picker.dismiss(animated: true, completion: nil)
         //self.textImageTake.alpha = 0.05
-        if textImageTake.isFocused{
-            self.textImageTake.alpha = 1
+        if tapText.isFocused{
+            self.tapText.alpha = 1
         }else{
-            textImageTake.alpha = 0.5
+            tapText.alpha = 0.5
         }
     }
-    
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
- 
-}
+    /*@IBAction func saveProfile(_ sender: Any) {
+        if let avatorImage = self.profileImage.image{
+            if let image = resize(image: avatorImage, newSize: profileImage){
+                user[profileImageKey] = getPFFileFromImage(image: image) // PFFile column type
+            }
+        }
+    }*/
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
 
+}
