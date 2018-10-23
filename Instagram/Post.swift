@@ -15,6 +15,11 @@ class Post: PFObject, PFSubclassing {
     @NSManaged var caption: String
     @NSManaged var likesCount: Int
     @NSManaged var commentsCount: Int
+    @NSManaged var likes: Int
+    //var dateString: String?
+    
+    //let likesKey = "likes"
+    //let isLikedKey = "isLiked"
     
     /* Needed to implement PFSubclassing interface */
     class func parseClassName() -> String {
@@ -22,17 +27,6 @@ class Post: PFObject, PFSubclassing {
     }
     
     
-    /**
-     * Other methods
-     */
-    
-    /**
-     Method to add a user post to Parse (uploading image file)
-     
-     - parameter image: Image that the user wants upload to parse
-     - parameter caption: Caption text input by the user
-     - parameter completion: Block to be executed after save operation is complete
-     */
     class func postUserImage(image: UIImage?, withCaption caption: String?, withCompletion completion: PFBooleanResultBlock?) {
     
         // use subclass approach

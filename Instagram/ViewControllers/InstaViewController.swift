@@ -13,15 +13,8 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var tableView: UITableView!
    
-    //var i = 0
-    //var image: AnyObject?
-    //var caption: String?
-    //var posts: [Post] = []
     var posts = [Post]()
-    //let query = Post.query()
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -85,11 +78,6 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
 }
     
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let backItem = UIBarButtonItem()
-        backItem.title = "Cancel"
-        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
-    }*/
 }
 
 

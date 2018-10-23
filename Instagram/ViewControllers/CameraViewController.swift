@@ -32,11 +32,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Dispose of any resources that can be recreated.
     }
     
-   /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        self.performSegue(withIdentifier: "homeSegue", sender: nil)
-    }
-    */
     @IBAction func onSubmit(_ sender: Any) {
         Post.postUserImage(image: imageView.image, withCaption: captionTextImage.text) { (success: Bool, error: Error?) in
             if success {

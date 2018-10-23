@@ -18,8 +18,14 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
     @IBAction func onSignIn(_ sender: Any) {
+        signIn()
+    }
+    
+    @IBAction func onSignInButton(_ sender: Any) {
+        signIn()
+    }
+    func signIn(){
         let username = usernameField.text ?? ""
         let password = passwordField.text ?? ""
         
@@ -31,9 +37,9 @@ class LoginViewController: UIViewController {
                 print("Login success!")
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             }
-        }
-        
     }
+    }
+
     /*
     @IBAction func onSignUp(_ sender: Any) {
 
@@ -45,7 +51,4 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-
-
 }

@@ -10,6 +10,12 @@ import UIKit
 import Parse
 
 class SignUpViewController: UIViewController {
+    /*
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var fullnameField: UITextField!
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    */
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var fullnameField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
@@ -20,8 +26,15 @@ class SignUpViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
+    
+    @IBAction func onSignUp(_ sender: Any) {
+        signUp()
+    }
     @IBAction func onSignUpButton(_ sender: Any) {
+        signUp()
+    }
+    
+    func signUp(){
         let newUser = PFUser()
         newUser.username = usernameField.text ?? ""
         newUser.password = passwordField.text ?? ""
