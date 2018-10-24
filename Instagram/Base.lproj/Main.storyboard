@@ -531,12 +531,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_tab" translatesAutoresizingMaskIntoConstraints="NO" id="9gd-jG-Yt8">
-                                <rect key="frame" x="16" y="83" width="100" height="95"/>
+                                <rect key="frame" x="4" y="68" width="143" height="143"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="MGJ-b2-MwM"/>
-                                    <constraint firstAttribute="width" constant="100" id="cQt-UL-6ta"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="95" id="jkY-4U-L5G"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="x6r-hm-C7u"/>
+                                    <constraint firstAttribute="height" constant="143" id="OJM-B8-ETm"/>
+                                    <constraint firstAttribute="width" constant="143" id="eyS-C2-dqb"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="userProfileImage" value="YES"/>
@@ -641,22 +639,22 @@
                                     <constraint firstAttribute="height" constant="340" id="Jr5-xx-gf7"/>
                                     <constraint firstAttribute="width" constant="375" id="mya-JG-kb4"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="FmE-hv-zcA">
-                                    <size key="itemSize" width="103" height="103"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="FmE-hv-zcA">
+                                    <size key="itemSize" width="104" height="103"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="jwa-m3-EgB" customClass="GalleryCell" customModule="Instagram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="103" height="103"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="104" height="103"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="103" height="103"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="104" height="103"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZLE-di-jTl">
-                                                    <rect key="frame" x="10" y="0.0" width="100" height="100"/>
+                                                    <rect key="frame" x="4" y="0.0" width="100" height="95"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -677,48 +675,35 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wk-xu-QTh">
-                                <rect key="frame" x="195" y="156" width="119" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="L8Z-P1-ldI"/>
-                                    <constraint firstAttribute="width" constant="119" id="cDC-Cx-z3w"/>
-                                </constraints>
-                                <state key="normal" title="Change Picture"/>
-                                <connections>
-                                    <action selector="onEditProfilPic:" destination="rxJ-ni-7pY" eventType="touchUpInside" id="zm0-4T-CO8"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="J0z-Yb-CZa" firstAttribute="top" secondItem="QN9-fG-h5B" secondAttribute="top" constant="12" id="1vY-zS-Qdc"/>
-                            <constraint firstItem="yxg-3y-uMT" firstAttribute="leading" secondItem="9gd-jG-Yt8" secondAttribute="trailing" constant="55" id="2GR-de-HM5"/>
-                            <constraint firstItem="3wk-xu-QTh" firstAttribute="leading" secondItem="9gd-jG-Yt8" secondAttribute="trailing" constant="79" id="2bX-rf-NKx"/>
-                            <constraint firstItem="9gd-jG-Yt8" firstAttribute="leading" secondItem="QN9-fG-h5B" secondAttribute="leading" constant="16" id="7O1-a2-1fG"/>
                             <constraint firstItem="8Ba-Er-Wvr" firstAttribute="top" secondItem="h5N-31-ueX" secondAttribute="bottom" constant="22" id="7pS-N3-1DY"/>
+                            <constraint firstItem="MuN-sN-HRh" firstAttribute="leading" secondItem="9gd-jG-Yt8" secondAttribute="trailing" constant="68" id="7xd-sK-3sD"/>
                             <constraint firstItem="yxg-3y-uMT" firstAttribute="top" secondItem="QN9-fG-h5B" secondAttribute="top" constant="12" id="AF3-dp-Y9V"/>
+                            <constraint firstItem="acY-g8-0xF" firstAttribute="leading" secondItem="9gd-jG-Yt8" secondAttribute="trailing" constant="12" id="BNW-VD-uFg"/>
                             <constraint firstItem="J0z-Yb-CZa" firstAttribute="leading" secondItem="yxg-3y-uMT" secondAttribute="trailing" constant="60" id="HSu-HM-214"/>
-                            <constraint firstItem="9gd-jG-Yt8" firstAttribute="top" secondItem="QN9-fG-h5B" secondAttribute="top" constant="19" id="Jki-c5-Xie"/>
                             <constraint firstItem="acY-g8-0xF" firstAttribute="top" secondItem="yxg-3y-uMT" secondAttribute="bottom" constant="4" id="KKP-ju-ZIg"/>
                             <constraint firstItem="U26-vv-qsB" firstAttribute="leading" secondItem="QN9-fG-h5B" secondAttribute="leading" constant="16" id="KYZ-2O-jhD"/>
                             <constraint firstItem="qW3-su-eJT" firstAttribute="top" secondItem="J0z-Yb-CZa" secondAttribute="bottom" constant="4" id="LsF-AG-Yza"/>
                             <constraint firstItem="qW3-su-eJT" firstAttribute="leading" secondItem="acY-g8-0xF" secondAttribute="trailing" constant="36" id="LxA-71-ej8"/>
                             <constraint firstItem="MuN-sN-HRh" firstAttribute="top" secondItem="qW3-su-eJT" secondAttribute="bottom" constant="15" id="NUD-Me-uYf"/>
-                            <constraint firstItem="MuN-sN-HRh" firstAttribute="leading" secondItem="9gd-jG-Yt8" secondAttribute="trailing" constant="99" id="P0T-9d-zSd"/>
-                            <constraint firstItem="acY-g8-0xF" firstAttribute="leading" secondItem="9gd-jG-Yt8" secondAttribute="trailing" constant="43" id="ZMk-PH-5pQ"/>
+                            <constraint firstItem="9gd-jG-Yt8" firstAttribute="top" secondItem="QN9-fG-h5B" secondAttribute="top" constant="4" id="PDr-d9-Dgw"/>
                             <constraint firstItem="QN9-fG-h5B" firstAttribute="trailing" secondItem="wS6-Zd-vZe" secondAttribute="trailing" constant="27" id="af9-pE-eLC"/>
                             <constraint firstItem="wS6-Zd-vZe" firstAttribute="leading" secondItem="J0z-Yb-CZa" secondAttribute="trailing" constant="60" id="bUs-Ta-UUz"/>
                             <constraint firstItem="2uI-Dv-Ut0" firstAttribute="leading" secondItem="QN9-fG-h5B" secondAttribute="leading" constant="16" id="cZa-Xw-kTY"/>
                             <constraint firstItem="U26-vv-qsB" firstAttribute="top" secondItem="2uI-Dv-Ut0" secondAttribute="bottom" constant="17" id="eU1-va-WlP"/>
                             <constraint firstItem="h5N-31-ueX" firstAttribute="top" secondItem="U26-vv-qsB" secondAttribute="bottom" constant="8" id="gl5-ab-EPO"/>
+                            <constraint firstItem="2uI-Dv-Ut0" firstAttribute="top" secondItem="9gd-jG-Yt8" secondAttribute="bottom" constant="6" id="kn4-zJ-xAf"/>
                             <constraint firstItem="e3w-2A-2xV" firstAttribute="leading" secondItem="qW3-su-eJT" secondAttribute="trailing" constant="30" id="lDj-To-HZQ"/>
                             <constraint firstItem="h5N-31-ueX" firstAttribute="leading" secondItem="QN9-fG-h5B" secondAttribute="leading" constant="16" id="lcx-5H-Ioe"/>
-                            <constraint firstItem="3wk-xu-QTh" firstAttribute="top" secondItem="qW3-su-eJT" secondAttribute="bottom" constant="44" id="lg0-cO-9Xd"/>
                             <constraint firstAttribute="bottom" secondItem="8Ba-Er-Wvr" secondAttribute="bottom" id="nLb-Bu-ZMS"/>
                             <constraint firstItem="8Ba-Er-Wvr" firstAttribute="trailing" secondItem="QN9-fG-h5B" secondAttribute="trailing" id="qG4-o9-gPT"/>
                             <constraint firstItem="8Ba-Er-Wvr" firstAttribute="leading" secondItem="QN9-fG-h5B" secondAttribute="leading" id="sd4-br-TNi"/>
+                            <constraint firstItem="yxg-3y-uMT" firstAttribute="leading" secondItem="9gd-jG-Yt8" secondAttribute="trailing" constant="24" id="stZ-rn-QsS"/>
                             <constraint firstItem="wS6-Zd-vZe" firstAttribute="top" secondItem="QN9-fG-h5B" secondAttribute="top" constant="12" id="stv-zv-yxk"/>
-                            <constraint firstItem="2uI-Dv-Ut0" firstAttribute="top" secondItem="9gd-jG-Yt8" secondAttribute="bottom" constant="39" id="uPp-yv-slq"/>
+                            <constraint firstItem="9gd-jG-Yt8" firstAttribute="leading" secondItem="QN9-fG-h5B" secondAttribute="leading" constant="4" id="uYg-Mw-L9o"/>
                             <constraint firstItem="QN9-fG-h5B" firstAttribute="trailing" secondItem="e3w-2A-2xV" secondAttribute="trailing" constant="16" id="vLZ-MT-ug8"/>
                             <constraint firstItem="e3w-2A-2xV" firstAttribute="top" secondItem="wS6-Zd-vZe" secondAttribute="bottom" constant="4" id="ySm-gK-4kS"/>
                             <constraint firstItem="QN9-fG-h5B" firstAttribute="trailing" secondItem="MuN-sN-HRh" secondAttribute="trailing" constant="85" id="zEV-Gi-p0W"/>

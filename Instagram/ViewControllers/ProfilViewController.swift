@@ -129,14 +129,13 @@ class ProfilViewController: UIViewController, UICollectionViewDataSource, UIColl
                 }
             }
         }
-        return cell
-        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.minimumInteritemSpacing = 1
+        /*let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.minimumInteritemSpacing = 3
         layout.minimumLineSpacing = layout.minimumInteritemSpacing
         let cellsPerLine: CGFloat = 3
         let interItemSpacingTotal = layout.minimumInteritemSpacing * (cellsPerLine - 1)
         let width = collectionView.frame.size.width / cellsPerLine - interItemSpacingTotal / cellsPerLine
-        layout.itemSize = CGSize(width: width, height: width * 3 / 2)
+        layout.itemSize = CGSize(width: width, height: width * 3 / 2)*/
         return cell
     }
     // MARK: UIImagePickerController delegates
