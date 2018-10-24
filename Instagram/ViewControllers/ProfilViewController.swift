@@ -25,9 +25,10 @@ fileprivate struct CollectionViewUI{
 class ProfilViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,  UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var fullNameLabel: UILabel!
+    //@IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var galleryLabel: UILabel!
+    @IBOutlet weak var usernameProfil: UILabel!
     
     
     let imagePicker = UIImagePickerController()
@@ -96,7 +97,7 @@ class ProfilViewController: UIViewController, UICollectionViewDataSource, UIColl
         //self.editProfilePicButton.layer.cornerRadius = 5
         
         let currentUsername = currentUser?["username"]!
-        //fullNameLabel.text = "  " + String(describing: currentUsername!)
+        usernameProfil.text = "  " + String(describing: currentUsername!)
         
         if let userProfileImage = currentUser?.object(forKey: "userProfileImage") as? PFFile {
             userProfileImage.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
