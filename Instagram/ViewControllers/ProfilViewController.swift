@@ -14,12 +14,12 @@ fileprivate let reuseIden = "GalleryCell"
 fileprivate let headerReuseIden = "profileViewID"
 //fileprivate let editProfileSegueIden = "EditProfile"
 
-fileprivate struct CollectionViewUI{
+/*fileprivate struct CollectionViewUI{
     static let UIEdgeSpace: CGFloat = 0
     static let MinmumLineSpace: CGFloat = 2
     static let MinmumInteritemSpace: CGFloat = 2
     static let cellCornerRadius: CGFloat = 0
-}
+}*/
 
 class ProfilViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     
@@ -77,6 +77,7 @@ class ProfilViewController: UIViewController, UICollectionViewDataSource, UIColl
             if error == nil {
                 // The find succeeded.
                 self.posts = (objects! as? [Post])!
+                
                 self.collectionView.reloadData()
             }
         }
@@ -104,6 +105,14 @@ class ProfilViewController: UIViewController, UICollectionViewDataSource, UIColl
                 }
             }
         }
+        
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.minimumInteritemSpacing = 1
+        layout.minimumLineSpacing = layout.minimumInteritemSpacing
+        let cellsPerLine: CGFloat = 3
+        let interItemSpacingTotal = layout.minimumInteritemSpacing * (cellsPerLine - 1)
+        let width = collectionView.frame.size.width / cellsPerLine - interItemSpacingTotal / cellsPerLine
+        layout.itemSize = CGSize(width: width, height: width * 3 / 2)
         return cell
     }
 
