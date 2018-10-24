@@ -14,20 +14,24 @@ fileprivate let reuseIden = "GalleryCell"
 fileprivate let headerReuseIden = "profileViewID"
 //fileprivate let editProfileSegueIden = "EditProfile"
 
-/*fileprivate struct CollectionViewUI{
+/*
+fileprivate struct CollectionViewUI{
     static let UIEdgeSpace: CGFloat = 0
     static let MinmumLineSpace: CGFloat = 2
     static let MinmumInteritemSpace: CGFloat = 2
     static let cellCornerRadius: CGFloat = 0
-}*/
-
-class ProfilViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
+}
+*/
+class ProfilViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,  UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var galleryLabel: UILabel!
     
+    
+    let imagePicker = UIImagePickerController()
+    let currentUser = PFUser.current()
     
     //@IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -63,6 +67,7 @@ class ProfilViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //self.profileImageView.image = UIImage(data: data!)
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         
@@ -77,13 +82,32 @@ class ProfilViewController: UIViewController, UICollectionViewDataSource, UIColl
             if error == nil {
                 // The find succeeded.
                 self.posts = (objects! as? [Post])!
-                
                 self.collectionView.reloadData()
             }
         }
         collectionView.reloadData()
+        //---------------
+        self.imagePicker.delegate = self
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.29, green: 0.44, blue: 0.7, alpha: 1.0)
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.black
+        //self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        //self.logoutButton.tintColor = UIColor.white
+        //self.editProfilePicButton.layer.cornerRadius = 5
+        
+        let currentUsername = currentUser?["username"]!
+        //fullNameLabel.text = "  " + String(describing: currentUsername!)
+        
+        if let userProfileImage = currentUser?.object(forKey: "userProfileImage") as? PFFile {
+            userProfileImage.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
+                let image = UIImage(data: imageData!)
+                if image != nil {
+                    self.profileImageView.image = image
+                }
+            })
+        }
+        //---------------
     }
-    
     @IBAction func editProfileButton(_ sender: Any) {
     }
     
@@ -105,7 +129,7 @@ class ProfilViewController: UIViewController, UICollectionViewDataSource, UIColl
                 }
             }
         }
-        
+        return cell
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumInteritemSpacing = 1
         layout.minimumLineSpacing = layout.minimumInteritemSpacing
@@ -115,9 +139,48 @@ class ProfilViewController: UIViewController, UICollectionViewDataSource, UIColl
         layout.itemSize = CGSize(width: width, height: width * 3 / 2)
         return cell
     }
-
-
-
+    // MARK: UIImagePickerController delegates
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.profileImageView.image = pickedImage
+        }
+        updateProfilePic()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func onEditProfilPic(_ sender: Any) {
+        print("Changing profile picture")
+        selectPhoto()
+    }
+    func selectPhoto() {
+        self.imagePicker.allowsEditing = true
+        self.imagePicker.sourceType = .photoLibrary
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    func updateProfilePic() {
+        if self.profileImageView.image == nil {
+            print("profil blank")
+            return
+        }
+        
+        let profileImage = self.profileImageView!.image
+        let profileImageFile = Post.getPFFileFromImage(image: profileImage)
+        
+        currentUser?.setObject(profileImageFile!, forKey: "userProfileImage")
+        currentUser?.saveInBackground(block: { (saved: Bool, error: Error?) in
+            if saved {
+                print("Saved profile image")
+            }
+            else {
+                print("Failed to save profile image: \(String(describing: error))")
+            }
+        })
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

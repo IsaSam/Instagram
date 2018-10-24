@@ -81,6 +81,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         func logOut() {
+           // print("logOut success")
+            
             // Logout the current user
             PFUser.logOutInBackground(block: { (error) in
                 if let error = error {
