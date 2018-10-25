@@ -13,7 +13,7 @@ The following **required** functionality is completed:
 - [X] The current signed in user is persisted across app restarts (+1pt)
 - [X] User can take a photo, add a caption, and post it to "Instagram" (+2pt)
 - [X] User can view the last 20 posts submitted to "Instagram" (+2pt)
-- [ ] User can pull to refresh the last 20 posts submitted to "Instagram" (+1pt)
+- [X] User can pull to refresh the last 20 posts submitted to "Instagram" (+1pt)
 - [X] User can tap a post to view post details, including timestamp and caption (+2pt)
 
 The following **stretch** features are implemented:
@@ -23,7 +23,7 @@ The following **stretch** features are implemented:
 - [X] User can use a tab bar to switch between all "Instagram" posts and posts published only by the user. AKA, tabs for Home Feed and Profile (+2pt)
 - [X] Add a custom camera using the CameraManager library (+1pt)
 - [ ] User can load more posts once he or she reaches the bottom of the feed using infinite scrolling (+2pt)
-- [-] Show the username and creation time for each post using section headers (+1pt)
+- [X] Show the username and creation time for each post using section headers (+1pt)
 - If you use TableView Section Headers to display the the username and creation time, you'll get "sticky headers" similar to the actual Instagram app.
 - [ ] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse (+1pt)
 - User Profiles:

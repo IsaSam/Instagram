@@ -15,7 +15,7 @@ fileprivate let headerReuseIden = "profileViewID"
 class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
-   
+    
     var posts = [Post]()
 
     override func viewDidLoad() {
@@ -27,7 +27,6 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
-        
         onTimer()
         Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(InstaViewController.onTimer), userInfo: nil, repeats: false)
         refreshEveryFiveSeconds()

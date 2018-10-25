@@ -102,8 +102,13 @@ class ProfilViewController: UIViewController, UICollectionViewDataSource, UIColl
         //self.editProfilePicButton.layer.cornerRadius = 5
         self.profileImageView.layer.cornerRadius = 45
         
-        let currentUsername = currentUser?["username"]!
-        usernameProfil.text = "  " + String(describing: currentUsername!)
+        if let currentUsername = currentUser?["username"]!{
+            usernameProfil.text = "  " + String(describing: currentUsername)
+        }
+        else{
+            print("add a user profil")
+        }
+        
         
         if let userProfileImage = currentUser?.object(forKey: "userProfileImage") as? PFFile {
             userProfileImage.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
