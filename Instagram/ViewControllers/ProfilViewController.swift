@@ -69,6 +69,11 @@ class ProfilViewController: UIViewController, UICollectionViewDataSource, UIColl
         super.viewDidLoad()
         
         //self.profileImageView.image = UIImage(data: data!)
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
+        profileImageView.clipsToBounds = true
+        profileImageView.layer.borderWidth = 3
+        profileImageView.layer.borderColor = UIColor.lightGray.cgColor
+        
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         
@@ -95,6 +100,7 @@ class ProfilViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         //self.logoutButton.tintColor = UIColor.white
         //self.editProfilePicButton.layer.cornerRadius = 5
+        self.profileImageView.layer.cornerRadius = 45
         
         let currentUsername = currentUser?["username"]!
         usernameProfil.text = "  " + String(describing: currentUsername!)
@@ -152,10 +158,13 @@ class ProfilViewController: UIViewController, UICollectionViewDataSource, UIColl
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func onEditProfilPic(_ sender: Any) {
+    @IBAction func onEditProfilePic(_ sender: Any) {
         print("Changing profile picture")
         selectPhoto()
     }
+    //@IBAction func onEditProfilPic(_ sender: Any) {
+   
+    //}
     func selectPhoto() {
         self.imagePicker.allowsEditing = true
         self.imagePicker.sourceType = .photoLibrary

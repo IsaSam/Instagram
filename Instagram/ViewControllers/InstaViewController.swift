@@ -9,6 +9,9 @@
 import UIKit
 import Parse
 
+
+fileprivate let headerReuseIden = "profileViewID"
+
 class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
@@ -18,10 +21,18 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.29, green: 0.44, blue: 0.7, alpha: 1.0)
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.black
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
         
+        onTimer()
+        Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(InstaViewController.onTimer), userInfo: nil, repeats: false)
+        refreshEveryFiveSeconds()
+    }
+    @objc func onTimer(){
         let query = Post.query()
         query?.order(byDescending: "createdAt")
         query?.includeKey("author")
@@ -33,9 +44,11 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.posts = objects! as! [Post]
                 self.tableView.reloadData()
             }
+            else {
+                print(error!.localizedDescription)
+            }
         }
-        tableView.reloadData()
-        
+        //tableView.reloadData()
     }
     @IBAction func onLogOut(_ sender: Any) {
         //print("Log Out Successfully")
@@ -72,11 +85,36 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         cell.captionLabel?.text = post.caption
         cell.usernameLabel.text = post.author.username
-        cell.profilImageView.image =  UIImage(named: "insta-colors")
+        //cell.profilImageView.image =  UIImage(named: "insta-colors")
         cell.userLabel.text = post.author.username
         cell.countLikes.text = post.likesCount.description
+        
+        if let userProfileImage = post.object(forKey: "userProfileImage") as? PFFile {
+            userProfileImage.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
+                let image = UIImage(data: imageData!)
+                if image != nil {
+                    //cell.profilePicImageView.image = image
+                    cell.profilImageView.image = image
+                }
+            })
+        }
+        
+        let timestamp = post.createdAt
+        cell.timeLabel.text = String(describing: formatTimestamp(date: timestamp!))
+        
+        cell.captionLabel.text = post["caption"] as? String
         return cell
 }
+    func formatTimestamp(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy h:mm a"
+        let timestamp = dateFormatter.string(from: date)
+        return timestamp
+    }
+    
+    func refreshEveryFiveSeconds() {
+        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(InstaViewController.onTimer), userInfo: nil, repeats: true)
+    }
     
 }
 

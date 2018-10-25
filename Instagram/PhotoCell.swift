@@ -22,7 +22,7 @@ class PhotoCell: UITableViewCell {
     
     @IBOutlet weak var addLike: UIImageView!
     @IBOutlet weak var addComment: UIImageView!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     var post: Post! {
         didSet {
@@ -33,7 +33,7 @@ class PhotoCell: UITableViewCell {
             self.captionLabel.text = post.caption
             self.profilImageView.image = UIImage(named: "insta-colors")
             self.countLikes.text = post.likesCount.description
-
+            
         }
     }
 
