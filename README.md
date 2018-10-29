@@ -13,8 +13,8 @@ The following **required** functionality is completed:
 - [X] The current signed in user is persisted across app restarts (+1pt)
 - [X] User can take a photo, add a caption, and post it to "Instagram" (+2pt)
 - [X] User can view the last 20 posts submitted to "Instagram" (+2pt)
-- [X] User can pull to refresh the last 20 posts submitted to "Instagram" (+1pt)
-- [X] User can tap a post to view post details, including timestamp and caption (+2pt)
+- [ ] User can pull to refresh the last 20 posts submitted to "Instagram" (+1pt)
+- [ ] User can tap a post to view post details, including timestamp and caption (+2pt)
 
 The following **stretch** features are implemented:
 
