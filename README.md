@@ -28,7 +28,7 @@ The following **stretch** features are implemented:
 - [ ] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse (+1pt)
 - User Profiles:
 - [X] Allow the logged in user to add a profile photo (+2pt)
-- [ ] Display the profile photo with each post (+1pt)
+- [X] Display the profile photo with each post (+1pt)
 - [ ] Tapping on a post's username or profile photo goes to that user's profile page (+2pt)
 - [ ] User can comment on a post and see all comments for each post in the post details screen (+3pt)
 - [ ] User can like a post and see number of likes for each post in the post details screen (+1pt)
