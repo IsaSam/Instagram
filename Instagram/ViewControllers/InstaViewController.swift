@@ -130,6 +130,12 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func refreshEvery() {
         Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(InstaViewController.onTimer), userInfo: nil, repeats: true)
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        backItem.tintColor = UIColor(red: 9.0, green: 9.0, blue: 9.0, alpha: 1.0)
+        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+    }
     
 }
 
