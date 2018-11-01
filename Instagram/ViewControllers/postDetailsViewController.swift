@@ -11,6 +11,8 @@ import Parse
 
 class postDetailsViewController: UIViewController {
     @IBOutlet weak var photoDetailPost: UIImageView!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var captionLabel: UILabel!
     
     var post : Post?
     
@@ -28,8 +30,19 @@ class postDetailsViewController: UIViewController {
             }
         }
         
+    timeLabel.text = post?.caption
+    captionLabel.text = FormatTimestamp((post?.createdAt)!)
+        
+        
     }
-
+    
+    func FormatTimestamp(_ date : Date) -> String {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "MMMM dd, yyyy"
+        let timestamp = dateformatter.string(from: date)
+        return timestamp
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

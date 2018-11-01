@@ -35,6 +35,7 @@ class LoginViewController: UIViewController {
                 print("Username or password is missing")
             }else if user != nil{
                 print("Login success!")
+                
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             }
     }

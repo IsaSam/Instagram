@@ -11,6 +11,8 @@ import Parse
 
 
 fileprivate let headerReuseIden = "profileViewID"
+let currentUser = PFUser.current()
+//let profilUser = PFUser.current()?.username
 
 class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
@@ -95,21 +97,46 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 }
                 else{
                     cell.photoImageView?.image = UIImage(data: data!)
+                    //------------------------------------------
+ 
+                    //------------
                 }
             }
         }
+        
         cell.captionLabel?.text = post.caption
         cell.usernameLabel.text = post.author.username
         //cell.profilImageView.image =  UIImage(named: "insta-colors")
         cell.userLabel.text = post.author.username
         cell.countLikes.text = post.likesCount.description
         
-        if let userProfileImage = post.object(forKey: "userProfileImage") as? PFFile {
+       /* if let userProfileImage = post.object(forKey: "userProfileImage") as? PFFile {
             userProfileImage.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
                 let image = UIImage(data: imageData!)
                 if image != nil {
                     //cell.profilePicImageView.image = image
                     cell.profilImageView.image = image
+                }
+            })
+        }
+        */
+        /*
+        if let userProfileImage : PFFile = post.media {
+            userProfileImage.getDataInBackground { (imageData, error) in
+                if (error != nil) {
+                    print(error.debugDescription)
+                }
+                else {
+                    cell.profilImageView.image = UIImage(data: imageData!)
+                }
+            }
+        }*/
+        if let userProfileImage = currentUser?.object(forKey: "userProfileImage") as? PFFile {
+            userProfileImage.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
+                let image = UIImage(data: imageData!)
+                if image != nil {
+                    cell.profilImageView.image = image
+                    
                 }
             })
         }
@@ -121,6 +148,8 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         return cell
 }
+
+    
     func formatTimestamp(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d, yyyy h:mm a"
@@ -132,17 +161,24 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(InstaViewController.onTimer), userInfo: nil, repeats: true)
     }
     
+    
+    
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      let postdetail = segue.destination as? postDetailsViewController
      if let cell = sender as! PhotoCell? {
      if let indexpath = tableView.indexPath(for: cell) {
      let post = posts[indexpath.row]
-     //postdetail.post = post
-        postdetail?.post = post
+    postdetail?.post = post
      }
      }
+    let backItem = UIBarButtonItem()
+    backItem.title = "Back"
+    navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+    backItem.tintColor = UIColor(red: 9.0, green: 9.0, blue: 9.0, alpha: 1.0)
+        
      
      }
+    
     
 }
 
