@@ -79,7 +79,7 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return posts.count
     }
@@ -118,6 +118,7 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.timeLabel.text = String(describing: formatTimestamp(date: timestamp!))
         
         cell.captionLabel.text = post["caption"] as? String
+
         return cell
 }
     func formatTimestamp(date: Date) -> String {
@@ -130,12 +131,18 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func refreshEvery() {
         Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(InstaViewController.onTimer), userInfo: nil, repeats: true)
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let backItem = UIBarButtonItem()
-        backItem.title = "Back"
-        backItem.tintColor = UIColor(red: 9.0, green: 9.0, blue: 9.0, alpha: 1.0)
-        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
-    }
+    
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     let postdetail = segue.destination as? postDetailsViewController
+     if let cell = sender as! PhotoCell? {
+     if let indexpath = tableView.indexPath(for: cell) {
+     let post = posts[indexpath.row]
+     //postdetail.post = post
+        postdetail?.post = post
+     }
+     }
+     
+     }
     
 }
 

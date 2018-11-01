@@ -7,13 +7,27 @@
 //
 
 import UIKit
+import Parse
 
 class postDetailsViewController: UIViewController {
-
+    @IBOutlet weak var photoDetailPost: UIImageView!
+    
+    var post : Post?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if let imageFile : PFFile = post?.media {
+            imageFile.getDataInBackground { (data, error) in
+                if (error != nil) {
+                    print(error.debugDescription)
+                }
+                else {
+                    self.photoDetailPost.image = UIImage(data: data!)
+                }
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
