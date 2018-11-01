@@ -17,6 +17,7 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [Post]()
+    var refreshControl: UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +25,25 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.29, green: 0.44, blue: 0.7, alpha: 1.0)
         self.navigationController?.navigationBar.barStyle = UIBarStyle.black
         
+        // Initialize a UIRefreshControl
+        self.refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        
+        // add refresh control to table view
+        tableView.insertSubview(refreshControl, at: 0)
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
+        
         onTimer()
         Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(InstaViewController.onTimer), userInfo: nil, repeats: false)
-        refreshEveryFiveSeconds()
+        refreshEvery()
     }
+
+    @objc func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        onTimer()
+  }
     @objc func onTimer(){
         let query = Post.query()
         query?.order(byDescending: "createdAt")
@@ -42,11 +55,14 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 // The find succeeded.
                 self.posts = objects! as! [Post]
                 self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+                
             }
             else {
                 print(error!.localizedDescription)
             }
         }
+        
         //tableView.reloadData()
     }
     @IBAction func onLogOut(_ sender: Any) {
@@ -110,9 +126,9 @@ class InstaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let timestamp = dateFormatter.string(from: date)
         return timestamp
     }
-    
-    func refreshEveryFiveSeconds() {
-        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(InstaViewController.onTimer), userInfo: nil, repeats: true)
+
+    func refreshEvery() {
+        Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(InstaViewController.onTimer), userInfo: nil, repeats: true)
     }
     
 }
