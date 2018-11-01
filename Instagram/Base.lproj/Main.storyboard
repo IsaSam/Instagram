@@ -862,6 +862,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RBY-RF-Ah7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="New Post" image="add" id="4CH-r4-B3M"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="nkq-Fn-cg8"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xqt-EV-zWK">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
